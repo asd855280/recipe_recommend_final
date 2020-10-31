@@ -116,3 +116,6 @@ We build all services and databases in docker containers, including python devop
 
 ## Line Chatbot API
 
+1. Follow the chatbot.
+
+!(/demo_img/follow.jpg)
