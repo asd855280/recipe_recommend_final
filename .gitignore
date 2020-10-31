@@ -8,3 +8,4 @@ docker
 /image_recognition/inception.h5
 /recipe_recommend/recipevec2.model
 /recipe_recommend/recipe_vector_full.json
+ngrok
