@@ -118,4 +118,4 @@ We build all services and databases in docker containers, including python devop
 
 1. Follow the chatbot.
 
-!(/demo_img/follow.jpg)
+![alt text](https://github.com/asd855280/recipe_recommend_final/blob/master/demo_img/follow.jpg?raw=true)
