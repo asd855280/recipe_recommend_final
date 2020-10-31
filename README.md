@@ -119,3 +119,15 @@ We build all services and databases in docker containers, including python devop
 1. Follow the chatbot.
 
 ![alt text](https://github.com/asd855280/recipe_recommend_final/blob/master/demo_img/follow.jpg?raw=true)
+
+2. Gym Equipment image recognition.
+
+![alt text](https://github.com/asd855280/recipe_recommend_final/blob/master/demo_img/image_recog.jpg?raw=true)
+
+3. Recipe recommendation.
+
+![alt text](https://github.com/asd855280/recipe_recommend_final/blob/master/demo_img/recipe_recom.jpg?raw=true)
+
+4. Functions as Saving workout plans or Saving recipes are also included. More demo images, please refer to demo_img directory.
+
+## AWS Deployment
