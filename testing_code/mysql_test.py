@@ -13,7 +13,7 @@ db = 'capstone'
 conn = pymysql.connect(host=host, port=port, user=user, passwd=passwd, db=db)
 cursor = conn.cursor()
 
-userID = '{}'
+userID = '<userID>'
 
 sql = """SELECT * FROM recipe_favorite WHERE userID='{}'""".format(userID)
 
