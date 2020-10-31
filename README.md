@@ -103,7 +103,7 @@ model = word2Vec.fit(for_word2vec)
 
 ## Data Pipeline & database structure
 
-We build all services and databases in docker containers, including python devops environment, mongoDB, MySQL and kafka. 
+All services and databases are built in docker containers, including python devops environment, mongoDB, MySQL and kafka. 
 
 1. Raw data collected from the web --> store in mongoDB.
 2. Push data to Hadoop file system that runs on local machines.
@@ -113,12 +113,15 @@ We build all services and databases in docker containers, including python devop
 6. Construct docker-compose.yml file to run all containers.
 7. Connect all containers by port mapping.
 
+![alt text](https://github.com/asd855280/recipe_recommend_final/blob/master/demo_img/structure.png?raw=true)
+
+
 
 ## Line Chatbot API
 
 1. Follow the chatbot.
 
-![alt text](https://github.com/asd855280/recipe_recommend_final/blob/master/demo_img/follow.jpg?raw=true)
+![alt text](https://github.com/asd855280/recipe_recommend_final/blob/master/demo_img/follow.jpg)
 
 2. Gym Equipment image recognition.
 
