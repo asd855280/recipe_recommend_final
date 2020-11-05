@@ -1,20 +1,11 @@
 
-{% include "header3.html" %}
+{% include "header4.html" %}
 
 <link href="{{url_for('static', filename = 'css/bootstrap.min.css')}}" rel="stylesheet">
 <meta name="viewport" content="width=device-width">
-
-<input name = "userID" type = "hidden" value = {{userID}}>
-
-<div>
-    <label>TDEE:{{tdee}} k/cal</label><br>
-    <label>今日攝取熱量:{{foodcal}} k/cal</label><br>
-    <label>剩餘熱量:{{ remaining }} k/cal</label>
-</div>
-
+<input  name = "userID" type = "hidden" value = {{userID}}>
 
 {% block body %}
-
 <div class="container">
 
     <div class="row">
@@ -58,39 +49,37 @@
 
 
                 <tr>
-              <th><p align="center" valign="center">吃什麼</p></th>
-              <th><p align="center" valign="center">熱量</p></th>
-              <th><p align="center" valign="center">時間</p></th>
+              <th><p align="center" valign="center">運動部位</p></th>
+              <th><p align="center" valign="center">運動多久呢？(分鐘)</p></th>
+              <th><p align="center" valign="center">紀錄時間</p></th>
               <th></th>
 
-                </tr>
+          </tr>
 
 
 
 
 
-                {% for row in diary %}
+                {% for row in  sport%}
                 <tr>
-                    <td><p align="center">{{row.2}}</p></td>
-                    <td><p align="center">{{row.3}}</p></td>
-                    <td><p align="center">{{row.4}}</p></td>
+                    <td><p align="center" valign="center">{{row.2}}</p></td>
+                    <td><p align="center" valign="center">{{row.3}}</p></td>
+                    <td><p align="center" valign="center">{{row.4}}</p></td>
                     <td>
 
 
-               <a href="/update" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit{{row.1}}" p align="center" valign="center">Edit</a>
-
-                <a href="/kill" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modalkill{{row.1}}" p align="center" valign="center" >Delete</a>
+               <a href="/renew" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit{{row.1}}">Edit</a>
+                <a href="/vanish" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modalvanish{{row.1}}">Delete</a>
 
                     </td>
 
                 </tr>
 
-
-                  <div id="modalkill{{row.1}}" class="modal fade" role="dialog">
+                <div id="modalvanish{{row.1}}" class="modal fade" role="dialog">
                   <div class="modal-content" p align="center" valign="center" >
-                  <form action ="{{ url_for('killdiary') }}" method="POST">
+                  <form action ="{{ url_for('vanishdiary') }}" method="POST">
                   <input name = "userID" type = "hidden" value = {{userID}}>
-                  <input type="hidden"  name="diary_id" value="{{row.1}}">
+                  <input type="hidden"  name="sport_id" value="{{row.1}}">
                       <label p align="center" valign="center">你確定要刪除嗎</label><br>
                       <button class="btn btn-primary" type="sbumit">Delete</button>
                       <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
@@ -101,20 +90,13 @@
                   </div>
                   </div>
 
-
-
-
-
                 <div id="modaledit{{row.1}}" class="modal fade" role="dialog">
-
-
 
 
    <div class="modal-dialog">
 
 
       <div class="modal-content">
-
 
 
          <div class="modal-header">
@@ -132,17 +114,18 @@
          <div class="modal-body">
 
 
-            <form action="{{ url_for('update') }}" method="POST">
-                <input id = "userID" name = "userID" type = "hidden" value = {{userID}}>
+            <form action="{{ url_for('renew') }}" method="POST">
+                <input  name = "userID" type = "hidden" value = {{userID}}>
+
 
 
                <div class="form-group">
 
 
-                  <label>吃了什麼？</label>
-                  <input type="hidden"  name="diary_id" value="{{row.1}}">
+                  <label>運動部位</label>
+                   <input type="hidden"  name="sport_id" value="{{row.1}}">
 
-                  <input type="text" class="form-control" name="food_name" value="{{row.2}}">
+                  <input type="text" class="form-control" name="sport_name" value="{{row.2}}">
 
 
                </div>
@@ -150,11 +133,13 @@
                 <div class="form-group">
 
 
-                  <label>熱量多少呢？</label>
+                  <label>運動多少呢？</label>
 
-                  <input type="text" class="form-control" name="food_calory" placeholder ="單位 k/cal"  value="{{row.3}}">
+                  <input type="text" class="form-control" name="sport_time" placeholder ="單位 分鐘" value="{{row.3}}">
+
 
                </div>
+
 
 
 
@@ -162,6 +147,7 @@
 
 
                   <button class="btn btn-primary" type="sbumit">Update</button>
+
 
 
                </div>
@@ -215,7 +201,6 @@
       <div class="modal-content">
 
 
-
          <div class="modal-header">
 
 
@@ -228,19 +213,18 @@
          </div>
 
 
-
          <div class="modal-body">
 
 
-            <form action="{{ url_for('insert') }}" method="POST">
-            <input name = "userID" type = "hidden" value = {{userID}}>
+            <form action="{{ url_for('addin') }}" method="POST">
+            <input  name = "userID" type = "hidden" value = {{userID}}>
 
 
                <div class="form-group">
 
 
-                  <label>吃了什麼呢？</label>
-                  <input type="text" class="form-control" name="food_name" required="1">
+                  <label>運動部位</label>
+                  <input type="text" class="form-control" name="sport_name" required="1">
 
 
                </div>
@@ -248,8 +232,8 @@
                 <div class="form-group">
 
 
-                  <label>熱量多少呢？</label>
-                  <input type="text" class="form-control" name="food_calory" placeholder ="單位 k/cal" required="1">
+                  <label>時間多少呢？</label>
+                  <input type="text" class="form-control" name="sport_time" placeholder ="單位 分鐘" required="1">
 
 
                </div>
