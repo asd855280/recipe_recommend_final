@@ -18,6 +18,9 @@ For AWS deployment, the application was deployed on EC2 instance. In order to ma
 
 **AWS Deployment**. 
 
+**QR-Code for the chatbot**
+
+![alt text](https://github.com/asd855280/recipe_recommend_final/blob/master/demo_img/實踐主義aws.png)
 
 ## Data Collection
 Websites we refered from:
