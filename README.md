@@ -140,5 +140,11 @@ All services and databases are built in docker containers, including python devo
 
 ## AWS Deployment
 
-Before deploy to AWS platform. There are a few things needed to be set up. VPC, public subnet, private subnet(optional), internet gateway, route tables and Roles.
-In this case, we select c5a.2xlarge EC2 instance, for the memory and computing purpose.
+Before deploy to AWS platform. There are a few things needed to be set up.
+
+In this case, created one VPC, a public subnet, whose IP range needed to be subset of VPC IP range. Attached one Internet Gateway,
+
+created one route table that associates with public subnet. 
+
+When launching an EC2 instance or initializing a spot request, be sure to select the pre-defined VPC and public subnet, and edit security group to open 22 port(fot ssh) and 80 port(fot http).
+
